@@ -70,26 +70,24 @@
       //   var checkOrientation = function () {
       //     if (window.orientation !== previousOrientation) {
       //       previousOrientation = window.orientation;
-      //       console.log("Orientation Changed")
             
       //       canvas.width = window.innerHeight * 16 / 9;
       //       canvas.height = window.innerHeight;
       //     }
       //   };
 
-      //   console.log("Added Event listeners");
       //   window.addEventListener("resize", checkOrientation, false);
       //   window.addEventListener("orientationchange", checkOrientation, false);
 
-        function SetScreen()
+        function SetScreen() 
         {
-          if(canvas.width != window.innerHeight * 16 / 9)
+          if (canvas.width != window.innerHeight * 16 / 9)
             canvas.width = window.innerHeight * 16 / 9;
 
-          if(canvas.height != window.innerHeight)
+          if (canvas.height != window.innerHeight)
             canvas.height = window.innerHeight;
         }
-        // (optional) Android doesn't always fire orientationChange on 180 degree turns
+        
         setInterval(SetScreen, 10);
     </script>
   </body>
