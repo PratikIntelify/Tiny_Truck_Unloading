@@ -48,8 +48,9 @@
         config.devicePixelRatio = 1;
       }
 
-      canvas.width = window.innerHeight * 16/9;
       canvas.height = window.innerHeight;
+      canvas.width = window.innerHeight * 16/9;
+
       loadingBar.style.display = "block";
 
       var script = document.createElement("script");
@@ -81,11 +82,11 @@
 
         function SetScreen() 
         {
-          if (canvas.width != window.innerHeight * 16 / 9)
-            canvas.width = window.innerHeight * 16 / 9;
-
           if (canvas.height != window.innerHeight)
+          {
             canvas.height = window.innerHeight;
+            canvas.width = window.innerHeight * 16 / 9;
+          }
         }
         
         setInterval(SetScreen, 10);
