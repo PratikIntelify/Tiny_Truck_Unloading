@@ -80,33 +80,29 @@
       //   window.addEventListener("resize", checkOrientation, false);
       //   window.addEventListener("orientationchange", checkOrientation, false);
 
-        function SetScreen() 
+        function SetScreen()
         {
           if (window.innerWidth > window.innerHeight)
           {
             canvas.height = window.innerHeight;
             canvas.width = window.innerHeight * 16 / 9;
           }
-          else if(window.innerWidth < window.innerHeight)
+          else if (window.innerWidth < window.innerHeight)
           {
             canvas.width = window.innerWidth;
             canvas.height = window.innerWidth * 9 / 16;
           }
-
-
         }
         
         setInterval(SetScreen, 10);
 
-        function CheckOrientation()
-        {
-          if(window.innerHeight > window.innerWidth)
-          {
-            alert("Please Turn your mobile to landscape");
+        function CheckOrientation() {
+          if (window.innerHeight > window.innerWidth) {
+            alert("Please turn your mobile to landscape!");
           }
         }
 
-        setInterval(CheckOrientation, 2000);
+        setInterval(CheckOrientation, 5000);
     </script>
   </body>
 </html>
