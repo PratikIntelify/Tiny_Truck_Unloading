@@ -82,11 +82,18 @@
 
         function SetScreen() 
         {
-          if (canvas.height != window.innerHeight)
+          if (window.innerWidth > window.innerHeight)
           {
             canvas.height = window.innerHeight;
             canvas.width = window.innerHeight * 16 / 9;
           }
+          else if(window.innerWidth < window.innerHeight)
+          {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerWidth * 9 / 16;
+          }
+
+
         }
         
         setInterval(SetScreen, 10);
