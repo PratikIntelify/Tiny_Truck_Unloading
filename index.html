@@ -90,6 +90,16 @@
         }
         
         setInterval(SetScreen, 10);
+
+        function CheckOrientation()
+        {
+          if(window.innerHeight > window.innerWidth)
+          {
+            alert("Please Turn your mobile to landscape");
+          }
+        }
+
+        setInterval(CheckOrientation, 200);
     </script>
   </body>
 </html>
