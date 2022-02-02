@@ -67,31 +67,36 @@
     };
     document.body.appendChild(script);
 
+    var heigh = "";
+    var width = "";
     function SetScreen()
     {
       // if screen width is more than aspectratio width => set according to height
       if (window.innerWidth > window.innerHeight * 16 / 9)
       {
-        canvas.style.height = (window.innerHeight - 10) + "px";
-        canvas.style.width = ((window.innerHeight - 10) * 16 / 9) + "px";
+        height = (window.innerHeight - 10) + "px";
+        width = ((window.innerHeight - 10) * 16 / 9) + "px";
+
+        canvas.style.height = height;
+        canvas.style.width = width;
+        // canvas.height = height;
+        // canvas.width = width;
       }
       // if screen width is less than aspectratio width => set according to width
       else if (window.innerWidth < window.innerHeight * 16 / 9)
       {
-        canvas.style.width = (window.innerWidth - 10) + "px";
-        canvas.style.height = ((window.innerWidth - 10) * 9 / 16) + "px";
+        width = (window.innerWidth - 10) + "px";
+        height = ((window.innerWidth - 10) * 9 / 16) + "px";
+
+        canvas.style.width = width;
+        canvas.style.height = height;
+        // canvas.width = width;
+        // canvas.height = heigh;
       }
     }
 
     setInterval(SetScreen, 10);
 
-        // function CheckOrientation() {
-        //   if (window.innerHeight > window.innerWidth) {
-        //     alert("Please turn your mobile to landscape!");
-        //   }
-        // }
-
-        // setInterval(CheckOrientation, 5000);
   </script>
 </body>
 
