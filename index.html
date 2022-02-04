@@ -11,7 +11,9 @@
 
 <body>
   <div id="unity-container" class="unity-desktop">
-    <canvas id="unity-canvas" width=960 height=600></canvas>
+    <div id="canvas-container">
+      <canvas id="unity-canvas" width=960 height=600 style="width: 100%; height: 100%;"></canvas>
+    </div>
     <div id="unity-loading-bar">
       <div id="unity-logo"></div>
       <div id="unity-progress-bar-empty">
@@ -36,6 +38,7 @@
     };
 
     var container = document.querySelector("#unity-container");
+      var canvasContainer = document.querySelector("#canvas-container");
     var canvas = document.querySelector("#unity-canvas");
     var loadingBar = document.querySelector("#unity-loading-bar");
     var progressBarFull = document.querySelector("#unity-progress-bar-full");
@@ -70,22 +73,23 @@
     document.body.appendChild(script);
 
     
-      var isFullScreen = false;
+      // var isFullScreen = false;
       SetScreen();
 
       var heigh = "";
       var width = "";
       function SetScreen() {
-        if (isFullScreen)
-          return;
+        // if (isFullScreen)
+        //   return;
 
+        // console.log("SetScreen");
         // if screen width is more than aspectratio width => set according to height
         if (window.innerWidth > window.innerHeight * 16 / 9) {
           height = (window.innerHeight - 50) + "px";
           width = ((window.innerHeight - 50) * 16 / 9) + "px";
 
-          canvas.style.height = height;
-          canvas.style.width = width;
+          canvasContainer.style.height = height;
+          canvasContainer.style.width = width;
           // canvas.height = height;
           // canvas.width = width;
         }
@@ -94,8 +98,8 @@
           width = (window.innerWidth - 50) + "px";
           height = ((window.innerWidth - 50) * 9 / 16) + "px";
 
-          canvas.style.width = width;
-          canvas.style.height = height;
+          canvasContainer.style.width = width;
+          canvasContainer.style.height = height;
           // canvas.width = width;
           // canvas.height = heigh;
         }
@@ -105,23 +109,23 @@
 
       fullscreenButton.onclick = () => {
         // console.log("Enter full screen");
-        canvas.requestFullscreen();
-        isFullScreen = true;
+        canvasContainer.requestFullscreen();
+        // isFullScreen = true;
       }
 
-      if (document.addEventListener) {
-        document.addEventListener('fullscreenchange', exitHandler, false);
-        document.addEventListener('mozfullscreenchange', exitHandler, false);
-        document.addEventListener('MSFullscreenChange', exitHandler, false);
-        document.addEventListener('webkitfullscreenchange', exitHandler, false);
-      }
+      // if (document.addEventListener) {
+      //   document.addEventListener('fullscreenchange', exitHandler, false);
+      //   document.addEventListener('mozfullscreenchange', exitHandler, false);
+      //   document.addEventListener('MSFullscreenChange', exitHandler, false);
+      //   document.addEventListener('webkitfullscreenchange', exitHandler, false);
+      // }
 
-      function exitHandler() {
-        if (!document.webkitIsFullScreen && !document.mozFullScreen && !document.msFullscreenElement) {
-          // console.log("Exit full screen");
-          isFullScreen = false;
-        }
-      }
+      // function exitHandler() {
+      //   if (!document.webkitIsFullScreen && !document.mozFullScreen && !document.msFullscreenElement) {
+      //     // console.log("Exit full screen");
+      //     isFullScreen = false;
+      //   }
+      // }
   </script>
 </body>
 
