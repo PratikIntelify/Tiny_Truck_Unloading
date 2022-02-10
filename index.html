@@ -10,19 +10,19 @@
 </head>
 
 <body>
-  <div id="unity-container" class="unity-desktop">
-    <div id="canvas-container">
+  <div id="unity-container" class="unity-mobile">
+    <!-- <div id="canvas-container"> -->
       <canvas id="unity-canvas" width=960 height=600 style="width: 100%; height: 100%;"></canvas>
-    </div>
+    <!-- </div> -->
     <div id="unity-loading-bar">
       <div id="unity-logo"></div>
       <div id="unity-progress-bar-empty">
         <div id="unity-progress-bar-full"></div>
       </div>
     </div>
-    <div id="unity-footer">
+    <!-- <div id="unity-footer">
       <div id="unity-fullscreen-button"></div>
-    </div>
+    </div> -->
   </div>
   <script>
     var buildUrl = "Build";
@@ -38,11 +38,11 @@
     };
 
     var container = document.querySelector("#unity-container");
-      var canvasContainer = document.querySelector("#canvas-container");
+    // var canvasContainer = document.querySelector("#canvas-container");
     var canvas = document.querySelector("#unity-canvas");
     var loadingBar = document.querySelector("#unity-loading-bar");
     var progressBarFull = document.querySelector("#unity-progress-bar-full");
-    var fullscreenButton = document.querySelector("#unity-fullscreen-button");
+    // var fullscreenButton = document.querySelector("#unity-fullscreen-button");
 
     // By default Unity keeps WebGL canvas render target size matched with
     // the DOM size of the canvas element (scaled by window.devicePixelRatio)
@@ -74,44 +74,44 @@
 
     
       // var isFullScreen = false;
-      SetScreen();
+      // SetScreen();
 
-      var heigh = "";
-      var width = "";
-      function SetScreen() {
-        // if (isFullScreen)
-        //   return;
+      // var heigh = "";
+      // var width = "";
+      // function SetScreen() {
+      //   // if (isFullScreen)
+      //   //   return;
 
-        // console.log("SetScreen");
-        // if screen width is more than aspectratio width => set according to height
-        if (window.innerWidth > window.innerHeight * 16 / 9) {
-          height = (window.innerHeight - 50) + "px";
-          width = ((window.innerHeight - 50) * 16 / 9) + "px";
+      //   // console.log("SetScreen");
+      //   // if screen width is more than aspectratio width => set according to height
+      //   if (window.innerWidth > window.innerHeight * 16 / 9) {
+      //     height = (window.innerHeight - 50) + "px";
+      //     width = ((window.innerHeight - 50) * 16 / 9) + "px";
 
-          canvasContainer.style.height = height;
-          canvasContainer.style.width = width;
-          // canvas.height = height;
-          // canvas.width = width;
-        }
-        // if screen width is less than aspectratio width => set according to width
-        else if (window.innerWidth < window.innerHeight * 16 / 9) {
-          width = (window.innerWidth - 50) + "px";
-          height = ((window.innerWidth - 50) * 9 / 16) + "px";
+      //     canvasContainer.style.height = height;
+      //     canvasContainer.style.width = width;
+      //     // canvas.height = height;
+      //     // canvas.width = width;
+      //   }
+      //   // if screen width is less than aspectratio width => set according to width
+      //   else if (window.innerWidth < window.innerHeight * 16 / 9) {
+      //     width = (window.innerWidth - 50) + "px";
+      //     height = ((window.innerWidth - 50) * 9 / 16) + "px";
 
-          canvasContainer.style.width = width;
-          canvasContainer.style.height = height;
-          // canvas.width = width;
-          // canvas.height = heigh;
-        }
-      }
+      //     canvasContainer.style.width = width;
+      //     canvasContainer.style.height = height;
+      //     // canvas.width = width;
+      //     // canvas.height = heigh;
+      //   }
+      // }
 
-      setInterval(SetScreen, 10);
+      // setInterval(SetScreen, 10);
 
-      fullscreenButton.onclick = () => {
-        // console.log("Enter full screen");
-        canvasContainer.requestFullscreen();
-        // isFullScreen = true;
-      }
+      // fullscreenButton.onclick = () => {
+      //   // console.log("Enter full screen");
+      //   canvasContainer.requestFullscreen();
+      //   // isFullScreen = true;
+      // }
 
       // if (document.addEventListener) {
       //   document.addEventListener('fullscreenchange', exitHandler, false);
