@@ -109,7 +109,13 @@
 
       fullscreenButton.onclick = () => {
         // console.log("Enter full screen");
-        canvasContainer.requestFullscreen();
+        if (canvasContainer.requestFullscreen) {
+          canvasContainer.requestFullscreen();
+        } else if (canvasContainer.webkitRequestFullscreen) { /* Safari */
+          canvasContainer.webkitRequestFullscreen();
+        } else if (canvasContainer.msRequestFullscreen) { /* IE11 */
+          canvasContainer.msRequestFullscreen();
+        }
         // isFullScreen = true;
       }
 
